@@ -6,14 +6,14 @@ const { sha256 } = AElf.utils;
 
 const {
   aelf,
-  dexContractName
+  mainContractName
 } = config;
 
-let dexInstance;
+let contractInstance;
 // let alertLock = false;
-export default async function getDexContract(privateKey) {
-  if (dexInstance) {
-    return dexInstance;
+export default async function getMainContract(privateKey) {
+  if (contractInstance) {
+    return contractInstance;
   }
 
   const wallet = Wallet.getWalletByPrivateKey(privateKey);
@@ -31,10 +31,10 @@ export default async function getDexContract(privateKey) {
 
   const zeroC = await aelf.chain.contractAt(GenesisContractAddress, wallet);
 
-  const dexContractAddress = await zeroC.GetContractAddressByName.call(sha256(dexContractName));
+  const contractAddress = await zeroC.GetContractAddressByName.call(sha256(mainContractName));
 
-  const dexContract = await aelf.chain.contractAt(dexContractAddress, wallet);
+  const contract = await aelf.chain.contractAt(contractAddress, wallet);
 
-  dexInstance = dexContract;
-  return dexInstance;
+  contractInstance = contract;
+  return contractInstance;
 }

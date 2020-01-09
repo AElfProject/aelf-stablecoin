@@ -6,10 +6,10 @@ import AElf from 'aelf-sdk';
 
 const endpoint = 'http://192.168.199.156:1235';
 const aelf = new AElf(new AElf.providers.HttpProvider(endpoint));
-const dexContractName = 'AElf.ContractNames.ExchangeContract';
+const mainContractName = 'AElf.ContractNames.StablecoinContract';
 
 export default {
   endpoint,
   aelf,
-  dexContractName
+  mainContractName
 };

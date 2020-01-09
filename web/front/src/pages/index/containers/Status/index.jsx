@@ -7,7 +7,7 @@ import {
   Button
 } from 'antd';
 import config from '../../../../common/config';
-import getDexContract from '../../../../common/dexContract';
+import getMainContract from '../../../../common/mainContract';
 import './index.less';
 
 // address: 2hxkDg6Pd2d4yU1A16PTZVMMrEDYEPR8oQojMDwWdax5LsBaxX
@@ -25,25 +25,16 @@ const Status = () => {
     });
   };
 
-  const dexBuy = async () => {
-    const dexContract = await getDexContract(defaultPrivateKey);
-    if (!dexContract) {
-      setStatus('Not connected buy');
+  const hello = async () => {
+    const mainContract = await getMainContract(defaultPrivateKey);
+    if (!mainContract) {
+      setStatus('Not connected');
       return;
     }
-    const buyTxid = await dexContract.Buy();
-    setStatus((buyTxid && buyTxid.TransactionId) || 'Not connected buy');
+    const txid = await mainContract.Hello();
+    setStatus((txid && txid.TransactionId) || 'Not connected');
   };
 
-  const dexSell = async () => {
-    const dexContract = await getDexContract(defaultPrivateKey);
-    if (!dexContract) {
-      setStatus('Not connected sell');
-      return;
-    }
-    const sellTxid = await dexContract.Sell();
-    setStatus((sellTxid && sellTxid.TransactionId) || 'Not connected sell');
-  };
 
   useEffect(() => {
     getStatus();
@@ -57,9 +48,7 @@ const Status = () => {
       </pre>
       <Button onClick={getStatus}>refresh</Button>
       &nbsp;
-      <Button onClick={dexBuy}>Buy</Button>
-      &nbsp;
-      <Button onClick={dexSell}>Sell</Button>
+      <Button onClick={hello}>Hello</Button>
     </div>
   );
 };
