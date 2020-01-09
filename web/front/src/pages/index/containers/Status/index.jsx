@@ -18,7 +18,7 @@ const Status = () => {
 
   const getStatus = () => {
     config.aelf.chain.getChainStatus().then(res => {
-      setStatus(res || 'Not connected');
+      setStatus(JSON.stringify(res || 'Not connected'));
     }).catch(e => {
       console.log(e);
       setStatus(e.message || 'error happened');
@@ -47,8 +47,6 @@ const Status = () => {
 
   useEffect(() => {
     getStatus();
-    dexBuy();
-    dexSell();
   }, []);
 
   return (

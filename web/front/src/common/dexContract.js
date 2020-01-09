@@ -9,11 +9,11 @@ const {
   dexContractName
 } = config;
 
-const dexInstance = {};
+let dexInstance;
 // let alertLock = false;
 export default async function getDexContract(privateKey) {
-  if (dexInstance.privateKey) {
-    return dexInstance.privateKey;
+  if (dexInstance) {
+    return dexInstance;
   }
 
   const wallet = Wallet.getWalletByPrivateKey(privateKey);
@@ -35,6 +35,6 @@ export default async function getDexContract(privateKey) {
 
   const dexContract = await aelf.chain.contractAt(dexContractAddress, wallet);
 
-  dexInstance.privateKey = dexContract;
-  return dexInstance.privateKey;
+  dexInstance = dexContract;
+  return dexInstance;
 }
