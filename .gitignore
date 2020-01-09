@@ -294,3 +294,5 @@ aelf.js
 **/package-lock.json
 
 Contracts.manifest
+
+dist/
