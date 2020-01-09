@@ -1,3 +1,2 @@
-# aelf-dex
-Decentralized exchange on aelf
-
+# aelf-stablecoin
+Stablecoin on AElf
