@@ -8,7 +8,7 @@ using Google.Protobuf;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace AElf.Boilerplate.Tester
+namespace AElf.Dex.Tester
 {
     public interface ITransactionGeneratingService
     {
@@ -46,7 +46,7 @@ namespace AElf.Boilerplate.Tester
                 RefBlockNumber = chain.BestChainHeight,
                 RefBlockPrefix = ByteString.CopyFrom(chain.BestChainHash.Value.Take(4).ToArray())
             };
-            Logger.LogDebug($"[Boilerplate]Generated test tx: {transaction}. tx id: {transaction.GetHash()}");
+            Logger.LogDebug($"[Dex]Generated test tx: {transaction}. tx id: {transaction.GetHash()}");
             return transaction;
         }
     }

@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>AElf.Boilerplate.Tester</RootNamespace>
+        <RootNamespace>AElf.Dex.Tester</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

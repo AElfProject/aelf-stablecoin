@@ -1,7 +1,7 @@
 using AElf.Modularity;
 using Volo.Abp.Modularity;
 
-namespace AElf.Boilerplate.Tester
+namespace AElf.Dex.Tester
 {
     public class TesterModule : AElfModule
     {

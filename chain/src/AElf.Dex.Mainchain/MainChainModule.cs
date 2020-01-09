@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using AElf.Blockchains.MainChain;
-using AElf.Boilerplate.Tester;
 using AElf.Contracts.Deployer;
 using AElf.Contracts.Genesis;
 using AElf.Database;
+using AElf.Dex.Tester;
 using AElf.Kernel;
 using AElf.Kernel.Consensus;
 using AElf.Kernel.Consensus.AEDPoS;
@@ -11,7 +11,6 @@ using AElf.Kernel.Infrastructure;
 using AElf.Kernel.SmartContract;
 using AElf.Kernel.SmartContract.Application;
 using AElf.Kernel.SmartContract.Parallel;
-using AElf.Kernel.SmartContractExecution.Application;
 using AElf.Kernel.Token;
 using AElf.Kernel.Txn.Application;
 using AElf.Modularity;
@@ -34,7 +33,7 @@ using Volo.Abp.AspNetCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.Threading;
 
-namespace AElf.Boilerplate.MainChain
+namespace AElf.Dex.MainChain
 {
     [DependsOn(
         typeof(KernelAElfModule),
@@ -48,9 +47,8 @@ namespace AElf.Boilerplate.MainChain
 
         //web api module
         typeof(WebWebAppAElfModule),
-
         typeof(ParallelExecutionModule),
-        
+
         // test contracts by sending txs
         typeof(TesterModule)
     )]
@@ -91,7 +89,7 @@ namespace AElf.Boilerplate.MainChain
             s.TryAddSingleton<ISmartContractAddressNameProvider, VoteSmartContractAddressNameProvider>();
 
             var configuration = context.Services.GetConfiguration();
-            Configure<AElf.OS.EconomicOptions>(configuration.GetSection("Economic"));
+            Configure<EconomicOptions>(configuration.GetSection("Economic"));
             Configure<ChainOptions>(option =>
             {
                 option.ChainId =

@@ -8,16 +8,16 @@ using AElf.Types;
 using Google.Protobuf;
 using Volo.Abp.Threading;
 
-namespace AElf.Contracts.HelloWorldContract
+namespace AElf.Contracts.ExchangeContract
 {
-    public class HelloWorldContractTestBase : ContractTestBase<HelloWorldContractTestModule>
+    public class ExchangeContractTestBase : ContractTestBase<ExchangeContractTestModule>
     {
-        internal HelloWorldContractContainer.HelloWorldContractStub HelloWorldContractStub { get; set; }
+        internal ExchangeContractContainer.ExchangeContractStub ExchangeContractStub { get; set; }
         private ACS0Container.ACS0Stub ZeroContractStub { get; set; }
 
-        private Address HelloWorldContractAddress { get; set; }
+        private Address ExchangeContractAddress { get; set; }
 
-        protected HelloWorldContractTestBase()
+        protected ExchangeContractTestBase()
         {
             InitializeContracts();
         }
@@ -26,17 +26,17 @@ namespace AElf.Contracts.HelloWorldContract
         {
             ZeroContractStub = GetZeroContractStub(SampleECKeyPairs.KeyPairs.First());
 
-            HelloWorldContractAddress = AsyncHelper.RunSync(() =>
+            ExchangeContractAddress = AsyncHelper.RunSync(() =>
                 ZeroContractStub.DeploySystemSmartContract.SendAsync(
                     new SystemContractDeploymentInput
                     {
                         Category = KernelConstants.CodeCoverageRunnerCategory,
-                        Code = ByteString.CopyFrom(File.ReadAllBytes(typeof(HelloWorldContract).Assembly.Location)),
+                        Code = ByteString.CopyFrom(File.ReadAllBytes(typeof(ExchangeContract).Assembly.Location)),
                         Name = ProfitSmartContractAddressNameProvider.Name,
                         TransactionMethodCallList =
                             new SystemContractDeploymentInput.Types.SystemTransactionMethodCallList()
                     })).Output;
-            HelloWorldContractStub = GetHelloWorldContractStub(SampleECKeyPairs.KeyPairs.First());
+            ExchangeContractStub = GetExchangeContractStub(SampleECKeyPairs.KeyPairs.First());
         }
 
         private ACS0Container.ACS0Stub GetZeroContractStub(ECKeyPair keyPair)
@@ -44,9 +44,9 @@ namespace AElf.Contracts.HelloWorldContract
             return GetTester<ACS0Container.ACS0Stub>(ContractZeroAddress, keyPair);
         }
 
-        private HelloWorldContractContainer.HelloWorldContractStub GetHelloWorldContractStub(ECKeyPair keyPair)
+        private ExchangeContractContainer.ExchangeContractStub GetExchangeContractStub(ECKeyPair keyPair)
         {
-            return GetTester<HelloWorldContractContainer.HelloWorldContractStub>(HelloWorldContractAddress, keyPair);
+            return GetTester<ExchangeContractContainer.ExchangeContractStub>(ExchangeContractAddress, keyPair);
         }
     }
 }

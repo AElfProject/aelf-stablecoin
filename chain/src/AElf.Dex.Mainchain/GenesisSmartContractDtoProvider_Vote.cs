@@ -1,12 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Acs0;
-using AElf.Contracts.Vote;
-using AElf.Kernel;
-using AElf.Kernel.Token;
 using AElf.OS.Node.Application;
 using AElf.Types;
-using Google.Protobuf.WellKnownTypes;
 
 namespace AElf.Blockchains.MainChain
 {
@@ -17,7 +13,7 @@ namespace AElf.Blockchains.MainChain
             var l = new List<GenesisSmartContractDto>();
 
             l.AddGenesisSmartContract(
-                _codes.Single(kv=>kv.Key.Contains("Vote")).Value,
+                _codes.Single(kv => kv.Key.Contains("Vote")).Value,
                 VoteSmartContractAddressNameProvider.Name, GenerateVoteInitializationCallList());
 
             return l;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using AElf.Boilerplate.MainChain;
+using AElf.Dex.MainChain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Modularity;
 
-namespace AElf.Boilerplate.Launcher
+namespace AElf.Dex.Launcher
 {
     public class Startup
     {
@@ -45,8 +45,8 @@ namespace AElf.Boilerplate.Launcher
                 });
             });
         }
-        
-        private static void AddApplication<T>(IServiceCollection services) where T: IAbpModule
+
+        private static void AddApplication<T>(IServiceCollection services) where T : IAbpModule
         {
             services.AddApplication<T>();
         }

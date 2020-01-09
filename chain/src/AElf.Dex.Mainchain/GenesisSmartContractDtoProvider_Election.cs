@@ -15,7 +15,7 @@ namespace AElf.Blockchains.MainChain
             var l = new List<GenesisSmartContractDto>();
 
             l.AddGenesisSmartContract(
-                _codes.Single(kv=>kv.Key.Contains("Election")).Value,
+                _codes.Single(kv => kv.Key.Contains("Election")).Value,
                 ElectionSmartContractAddressNameProvider.Name, GenerateElectionInitializationCallList());
 
             return l;
@@ -26,7 +26,8 @@ namespace AElf.Blockchains.MainChain
         {
             var electionContractMethodCallList =
                 new SystemContractDeploymentInput.Types.SystemTransactionMethodCallList();
-            electionContractMethodCallList.Add(nameof(ElectionContractContainer.ElectionContractStub.InitialElectionContract),
+            electionContractMethodCallList.Add(
+                nameof(ElectionContractContainer.ElectionContractStub.InitialElectionContract),
                 new InitialElectionContractInput
                 {
                     MaximumLockTime = 1080 * 86400,

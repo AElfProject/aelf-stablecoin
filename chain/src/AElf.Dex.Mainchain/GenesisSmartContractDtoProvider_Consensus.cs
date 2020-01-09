@@ -18,7 +18,7 @@ namespace AElf.Blockchains.MainChain
             var l = new List<GenesisSmartContractDto>();
 
             l.AddGenesisSmartContract(
-                _codes.Single(kv=>kv.Key.Split(",").First().Trim().Contains("AEDPoS")).Value,
+                _codes.Single(kv => kv.Key.Split(",").First().Trim().Contains("AEDPoS")).Value,
                 ConsensusSmartContractAddressNameProvider.Name,
                 GenerateConsensusInitializationCallList());
             return l;
@@ -33,7 +33,7 @@ namespace AElf.Blockchains.MainChain
                 new InitialAElfConsensusContractInput
                 {
                     TimeEachTerm = _consensusOptions.TimeEachTerm,
-                    MinerIncreaseInterval=_consensusOptions.MinerIncreaseInterval
+                    MinerIncreaseInterval = _consensusOptions.MinerIncreaseInterval
                 });
             aelfConsensusMethodCallList.Add(nameof(AEDPoSContractContainer.AEDPoSContractStub.FirstRound),
                 new MinerList

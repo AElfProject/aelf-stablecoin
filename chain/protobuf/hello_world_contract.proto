@@ -1,12 +1,12 @@
-/* This files is part of the Hello World smart contract example that is included in Boilerplate.
+/* This files is part of the Hello World smart contract example that is included in Dex.
  * It is only the definition of the contract, implementation is located in the "contract" folder
  * and tests are located in the "test" folder.
  *
  * You can use this as a basic template for new contracts.
  * 
- * When building Boilerplate or the contract project located in the "../contract/AElf.Contracts.HelloWorldContract/" 
+ * When building Dex or the contract project located in the "../contract/AElf.Contracts.ExchangeContract/" 
  * protoc (the protobuf compiler) will be invoked and this file will produce a .c.cs file and .g.cs file, in the 
- * "../contract/AElf.Contracts.HelloWorldContract/Protobuf/Generated/" folder. 
+ * "../contract/AElf.Contracts.ExchangeContract/Protobuf/Generated/" folder. 
  */
 
 // the version of the language, use proto3 for contracts
@@ -21,21 +21,31 @@ import "google/protobuf/empty.proto";
 
 // the name of the C# namespace in which the contract code will be,
 // generated code will also be in this namespace.
-option csharp_namespace = "AElf.Contracts.HelloWorldContract";
+option csharp_namespace = "AElf.Contracts.ExchangeContract";
 
 // the contract definition: a gRPC service definition.
-service HelloWorldContract {
+service ExchangeContract {
 
     // the full name of the C# class that will contain the state (here <namespace>.<state-class-name> format).
-    option (aelf.csharp_state) = "AElf.Contracts.HelloWorldContract.HelloWorldContractState";
+    option (aelf.csharp_state) = "AElf.Contracts.ExchangeContract.ExchangeContractState";
 
     // an action defined as a gRPC service method.
-    // this action take a google.protobuf.Empty (placeholder for void) as input
-    // and returns a custom defined type: HelloReturn.
-    rpc Hello (google.protobuf.Empty) returns (HelloReturn) { }
+    rpc Buy (BuyInput) returns (BuyOutput) { }
+    rpc Sell (SellInput) returns (SellOutput) { }
 }
 
-// a custom message, used as the return type of the Hello action
-message HelloReturn {
+message BuyInput {
+    string Value = 1;
+}
+
+message SellInput {
+    string Value = 1;
+}
+
+message BuyOutput {
+    string Value = 1;
+}
+
+message SellOutput {
     string Value = 1;
 }

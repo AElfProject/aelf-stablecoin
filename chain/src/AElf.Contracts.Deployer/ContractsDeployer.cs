@@ -28,6 +28,7 @@ namespace AElf.Contracts.Deployer
                 codes.Add(systemContractDllPath.Split('.').Reverse().Skip(1).First(),
                     File.ReadAllBytes(Assembly.LoadFile(systemContractDllPath).Location));
             }
+
             return codes;
         }
 
