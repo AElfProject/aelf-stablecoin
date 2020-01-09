@@ -1,7 +1,7 @@
 namespace AElf.Contracts.ExchangeContract
 {
     /// <summary>
-    /// The C# implementation of the contract defined in hello_world_contract.proto that is located in the "protobuf"
+    /// The C# implementation of the contract defined in exchange_contract.proto that is located in the "protobuf"
     /// folder.
     /// Notice that it inherits from the protobuf generated code. 
     /// </summary>
