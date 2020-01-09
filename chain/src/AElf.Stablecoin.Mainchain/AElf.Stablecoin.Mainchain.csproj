@@ -46,8 +46,7 @@
             <OutputItemType>Contract</OutputItemType>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </PackageReference>
-        <ProjectReference
-            Include="..\..\contract\AElf.Contracts.StablecoinContract\AElf.Contracts.StablecoinContract.csproj">
+        <ProjectReference Include="..\..\contract\AElf.Contracts.StablecoinContract\AElf.Contracts.StablecoinContract.csproj">
             <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
             <OutputItemType>Contract</OutputItemType>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
