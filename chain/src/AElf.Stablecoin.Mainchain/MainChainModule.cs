@@ -3,7 +3,6 @@ using AElf.Blockchains.MainChain;
 using AElf.Contracts.Deployer;
 using AElf.Contracts.Genesis;
 using AElf.Database;
-using AElf.Dex.Tester;
 using AElf.Kernel;
 using AElf.Kernel.Consensus;
 using AElf.Kernel.Consensus.AEDPoS;
@@ -20,6 +19,7 @@ using AElf.OS.Node.Application;
 using AElf.OS.Node.Domain;
 using AElf.Runtime.CSharp;
 using AElf.RuntimeSetup;
+using AElf.Stablecoin.Tester;
 using AElf.WebApp.Web;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,7 +33,7 @@ using Volo.Abp.AspNetCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.Threading;
 
-namespace AElf.Dex.MainChain
+namespace AElf.Stablecoin.MainChain
 {
     [DependsOn(
         typeof(KernelAElfModule),

@@ -176,11 +176,11 @@ message Chain {
     int64 best_chain_height = 10;
 }
 
-message ChainBlockIndex {
+message ChainBlockInStablecoin {
     Hash block_hash = 1;
 }
 
-message TransactionBlockIndex {
+message TransactionBlockInStablecoin {
     Hash block_hash = 1;
     int64 block_height = 2;
 }

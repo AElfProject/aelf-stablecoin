@@ -8,8 +8,8 @@
     </PropertyGroup>
     <ItemGroup>
         <!-- Reference the protobuf definition of the contract -->
-        <ContractCode Include="..\..\protobuf\exchange_contract.proto">
-            <Link>Protobuf/Proto/exchange_contract.proto</Link>
+        <ContractCode Include="..\..\protobuf\stablecoin_contract.proto">
+            <Link>Protobuf/Proto/stablecoin_contract.proto</Link>
         </ContractCode>
     </ItemGroup>
 </Project>

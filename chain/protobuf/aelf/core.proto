@@ -40,7 +40,7 @@ message TransactionResult {
     bytes return_value = 5;
     int64 block_number = 6;
     Hash block_hash = 7;
-    int32 index = 8;
+    int32 inStablecoin = 8;
     Hash state_hash = 9;
     // Merkle proof path for this transaction
     string Error = 10;
@@ -51,8 +51,8 @@ message TransactionResult {
 message LogEvent {
     Address address = 1;
     string name = 2;
-    repeated bytes indexed = 3;
-    bytes non_indexed = 4;
+    repeated bytes inStablecoined = 3;
+    bytes non_inStablecoined = 4;
 }
 
 message SmartContractRegistration {

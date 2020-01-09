@@ -7,10 +7,10 @@
 
     <ItemGroup>
         <ProjectReference
-            Include="..\..\contract\AElf.Contracts.ExchangeContract\AElf.Contracts.ExchangeContract.csproj">
+            Include="..\..\contract\AElf.Contracts.StablecoinContract\AElf.Contracts.StablecoinContract.csproj">
             <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
         </ProjectReference>
-        <ProjectReference Include="..\AElf.Dex.Mainchain\AElf.Dex.Mainchain.csproj" />
+        <ProjectReference Include="..\AElf.Stablecoin.Mainchain\AElf.Stablecoin.Mainchain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -44,7 +44,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\contract\AElf.Contracts.ExchangeContract\AElf.Contracts.ExchangeContract.csproj">
+        <ProjectReference
+            Include="..\..\contract\AElf.Contracts.StablecoinContract\AElf.Contracts.StablecoinContract.csproj">
             <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
             <OutputItemType>Contract</OutputItemType>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

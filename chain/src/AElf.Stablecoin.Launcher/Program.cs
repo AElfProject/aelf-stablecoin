@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace AElf.Dex.Launcher
+namespace AElf.Stablecoin.Launcher
 {
     class Program
     {

@@ -9,14 +9,15 @@ namespace AElf.Blockchains.MainChain
     /* Part of the GenesisSmartContractDtoProvider */
     public partial class GenesisSmartContractDtoProvider
     {
-        public IEnumerable<GenesisSmartContractDto> GetGenesisSmartContractDtosForExchange(Address zeroContractAddress)
+        public IEnumerable<GenesisSmartContractDto> GetGenesisSmartContractDtosForStablecoin(
+            Address zeroContractAddress)
         {
             var l = new List<GenesisSmartContractDto>();
             l.AddGenesisSmartContract(
                 // find the contracts code by name
-                _codes.Single(kv => kv.Key.Contains("Exchange")).Value,
+                _codes.Single(kv => kv.Key.Contains("Stablecoin")).Value,
                 // the name of the contract is built from the full name
-                Hash.FromString("AElf.ContractNames.ExchangeContract"),
+                Hash.FromString("AElf.ContractNames.StablecoinContract"),
                 new SystemContractDeploymentInput.Types.SystemTransactionMethodCallList());
             return l;
         }

@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>AElf.Dex.Tester</RootNamespace>
+        <RootNamespace>AElf.Stablecoin.Tester</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

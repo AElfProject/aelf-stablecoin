@@ -1,7 +1,7 @@
 using AElf.Modularity;
 using Volo.Abp.Modularity;
 
-namespace AElf.Dex.Tester
+namespace AElf.Stablecoin.Tester
 {
     public class TesterModule : AElfModule
     {

@@ -241,7 +241,7 @@ message LatestProviderToTinyBlocksCount {
 // Events
 message IrreversibleBlockFound {
     option (aelf.is_event) = true;
-    sint64 irreversible_block_height = 1 [(aelf.is_indexed) = true];
+    sint64 irreversible_block_height = 1 [(aelf.is_inStablecoined) = true];
 }
 
 message IrreversibleBlockHeightUnacceptable {
@@ -251,22 +251,22 @@ message IrreversibleBlockHeightUnacceptable {
 
 message MiningInformationUpdated {
     option (aelf.is_event) = true;
-    string pubkey = 1 [(aelf.is_indexed) = true];
-    google.protobuf.Timestamp mining_time = 2 [(aelf.is_indexed) = true];
-    string behaviour = 3 [(aelf.is_indexed) = true];
-    sint64 block_height = 4 [(aelf.is_indexed) = true];
-    aelf.Hash previous_block_hash = 5 [(aelf.is_indexed) = true];
+    string pubkey = 1 [(aelf.is_inStablecoined) = true];
+    google.protobuf.Timestamp mining_time = 2 [(aelf.is_inStablecoined) = true];
+    string behaviour = 3 [(aelf.is_inStablecoined) = true];
+    sint64 block_height = 4 [(aelf.is_inStablecoined) = true];
+    aelf.Hash previous_block_hash = 5 [(aelf.is_inStablecoined) = true];
 }
 
 message SecretSharingInformation {
     option (aelf.is_event) = true;
-    Round previous_round = 1 [(aelf.is_indexed) = true];
+    Round previous_round = 1 [(aelf.is_inStablecoined) = true];
     sint64 current_round_id = 2;
     sint64 previous_round_id = 3;
 }
 
 message MiningRewardGenerated {
     option (aelf.is_event) = true;
-    sint64 term_number = 1 [(aelf.is_indexed) = true];
+    sint64 term_number = 1 [(aelf.is_inStablecoined) = true];
     sint64 amount = 2;
 }

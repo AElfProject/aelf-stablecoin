@@ -34,5 +34,5 @@ extend google.protobuf.MessageOptions {
 }
 
 extend google.protobuf.FieldOptions {
-    optional bool is_indexed = 502001;
+    optional bool is_inStablecoined = 502001;
 }

@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>AElf.Contracts.ExchangeContract</RootNamespace>
+        <RootNamespace>AElf.Contracts.StablecoinContract</RootNamespace>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
@@ -23,14 +23,14 @@
         <ContractStub Include="..\..\protobuf\acs0.proto">
             <Link>Protobuf\Proto\acs0.proto</Link>
         </ContractStub>
-        <ContractStub Include="..\..\protobuf\exchange_contract.proto">
-            <Link>Protobuf\Proto\exchange_contract.proto</Link>
+        <ContractStub Include="..\..\protobuf\stablecoin_contract.proto">
+            <Link>Protobuf\Proto\stablecoin_contract.proto</Link>
         </ContractStub>
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference
-            Include="..\..\contract\AElf.Contracts.ExchangeContract\AElf.Contracts.ExchangeContract.csproj" />
+            Include="..\..\contract\AElf.Contracts.StablecoinContract\AElf.Contracts.StablecoinContract.csproj" />
     </ItemGroup>
 
 </Project>

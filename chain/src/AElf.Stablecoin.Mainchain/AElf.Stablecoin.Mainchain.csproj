@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>AElf.Dex.MainChain</RootNamespace>
+        <RootNamespace>AElf.Stablecoin.MainChain</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="AElf.Contracts.Genesis" Version="0.9.1" />
@@ -16,16 +16,8 @@
         <PackageReference Include="AElf.OS" Version="0.9.1" />
         <PackageReference Include="AElf.Kernel.BlockTransactionLimitController" Version="0.9.1" />
         <PackageReference Include="AElf.Kernel.Token" Version="0.9.1" />
-        <ProjectReference Include="..\AElf.Dex.Tester\AElf.Dex.Tester.csproj" />
+        <ProjectReference Include="..\AElf.Stablecoin.Tester\AElf.Stablecoin.Tester.csproj" />
         <ProjectReference Include="..\AElf.Contracts.Deployer\AElf.Contracts.Deployer.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\..\contract\AElf.Contracts.ExchangeContract\AElf.Contracts.ExchangeContract.csproj">
-            <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-            <OutputItemType>Contract</OutputItemType>
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </ProjectReference>
     </ItemGroup>
 
     <ItemGroup>
@@ -54,6 +46,12 @@
             <OutputItemType>Contract</OutputItemType>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </PackageReference>
+        <ProjectReference
+            Include="..\..\contract\AElf.Contracts.StablecoinContract\AElf.Contracts.StablecoinContract.csproj">
+            <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+            <OutputItemType>Contract</OutputItemType>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </ProjectReference>
     </ItemGroup>
 
     <ItemGroup>
@@ -87,8 +85,8 @@
         <ContractStub Include="..\..\protobuf\vote_contract.proto">
             <Link>Protobuf\Proto\vote_contract.proto</Link>
         </ContractStub>
-        <ContractStub Include="..\..\protobuf\exchange_contract.proto">
-            <Link>Protobuf\Proto\exchange_contract.proto</Link>
+        <ContractStub Include="..\..\protobuf\stablecoin_contract.proto">
+            <Link>Protobuf\Proto\stablecoin_contract.proto</Link>
         </ContractStub>
     </ItemGroup>
 </Project>

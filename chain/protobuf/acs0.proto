@@ -110,8 +110,8 @@ message ContractProposed
 message ContractDeployed
 {
     option (aelf.is_event) = true;
-    aelf.Address author = 1 [(aelf.is_indexed) = true];
-    aelf.Hash code_hash = 2 [(aelf.is_indexed) = true];
+    aelf.Address author = 1 [(aelf.is_inStablecoined) = true];
+    aelf.Hash code_hash = 2 [(aelf.is_inStablecoined) = true];
     aelf.Address address = 3;
 }
 
@@ -125,7 +125,7 @@ message CodeCheckRequired
 message CodeUpdated
 {
     option (aelf.is_event) = true;
-    aelf.Address address = 1 [(aelf.is_indexed) = true];
+    aelf.Address address = 1 [(aelf.is_inStablecoined) = true];
     aelf.Hash old_code_hash = 2;
     aelf.Hash new_code_hash = 3;
 }
@@ -133,7 +133,7 @@ message CodeUpdated
 message AuthorChanged
 {
     option (aelf.is_event) = true;
-    aelf.Address address = 1 [(aelf.is_indexed) = true];
+    aelf.Address address = 1 [(aelf.is_inStablecoined) = true];
     aelf.Address old_author = 2;
     aelf.Address new_author = 3;
 }

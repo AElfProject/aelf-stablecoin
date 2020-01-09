@@ -8,7 +8,7 @@ using AElf.Contracts.MultiToken;
 using AElf.Contracts.Profit;
 using AElf.Contracts.Vote;
 
-namespace AElf.Dex.MainChain
+namespace AElf.Stablecoin.MainChain
 {
     public class SystemContractProvider : ISystemContractProvider
     {

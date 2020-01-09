@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using AElf.Dex.MainChain;
+using AElf.Stablecoin.MainChain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Modularity;
 
-namespace AElf.Dex.Launcher
+namespace AElf.Stablecoin.Launcher
 {
     public class Startup
     {

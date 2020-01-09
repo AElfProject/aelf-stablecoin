@@ -8,16 +8,16 @@ using AElf.Types;
 using Google.Protobuf;
 using Volo.Abp.Threading;
 
-namespace AElf.Contracts.ExchangeContract
+namespace AElf.Contracts.StablecoinContract
 {
-    public class ExchangeContractTestBase : ContractTestBase<ExchangeContractTestModule>
+    public class StablecoinContractTestBase : ContractTestBase<StablecoinContractTestModule>
     {
-        internal ExchangeContractContainer.ExchangeContractStub ExchangeContractStub { get; set; }
+        internal StablecoinContractContainer.StablecoinContractStub StablecoinContractStub { get; set; }
         private ACS0Container.ACS0Stub ZeroContractStub { get; set; }
 
-        private Address ExchangeContractAddress { get; set; }
+        private Address StablecoinContractAddress { get; set; }
 
-        protected ExchangeContractTestBase()
+        protected StablecoinContractTestBase()
         {
             InitializeContracts();
         }
@@ -26,17 +26,17 @@ namespace AElf.Contracts.ExchangeContract
         {
             ZeroContractStub = GetZeroContractStub(SampleECKeyPairs.KeyPairs.First());
 
-            ExchangeContractAddress = AsyncHelper.RunSync(() =>
+            StablecoinContractAddress = AsyncHelper.RunSync(() =>
                 ZeroContractStub.DeploySystemSmartContract.SendAsync(
                     new SystemContractDeploymentInput
                     {
                         Category = KernelConstants.CodeCoverageRunnerCategory,
-                        Code = ByteString.CopyFrom(File.ReadAllBytes(typeof(ExchangeContract).Assembly.Location)),
+                        Code = ByteString.CopyFrom(File.ReadAllBytes(typeof(StablecoinContract).Assembly.Location)),
                         Name = ProfitSmartContractAddressNameProvider.Name,
                         TransactionMethodCallList =
                             new SystemContractDeploymentInput.Types.SystemTransactionMethodCallList()
                     })).Output;
-            ExchangeContractStub = GetExchangeContractStub(SampleECKeyPairs.KeyPairs.First());
+            StablecoinContractStub = GetStablecoinContractStub(SampleECKeyPairs.KeyPairs.First());
         }
 
         private ACS0Container.ACS0Stub GetZeroContractStub(ECKeyPair keyPair)
@@ -44,9 +44,9 @@ namespace AElf.Contracts.ExchangeContract
             return GetTester<ACS0Container.ACS0Stub>(ContractZeroAddress, keyPair);
         }
 
-        private ExchangeContractContainer.ExchangeContractStub GetExchangeContractStub(ECKeyPair keyPair)
+        private StablecoinContractContainer.StablecoinContractStub GetStablecoinContractStub(ECKeyPair keyPair)
         {
-            return GetTester<ExchangeContractContainer.ExchangeContractStub>(ExchangeContractAddress, keyPair);
+            return GetTester<StablecoinContractContainer.StablecoinContractStub>(StablecoinContractAddress, keyPair);
         }
     }
 }

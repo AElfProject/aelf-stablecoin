@@ -22,16 +22,16 @@ service ACS7 {
     rpc GetSideChainIdAndHeight (google.protobuf.Empty) returns (SideChainIdAndHeightDict) {
         option (aelf.is_view) = true;
     }
-    rpc GetSideChainIndexingInformationList (google.protobuf.Empty) returns (SideChainIndexingInformationList) {
+    rpc GetSideChainInStablecoiningInformationList (google.protobuf.Empty) returns (SideChainInStablecoiningInformationList) {
         option (aelf.is_view) = true;
     }
     rpc GetAllChainsIdAndHeight (google.protobuf.Empty) returns (SideChainIdAndHeightDict) {
         option (aelf.is_view) = true;
     }
-    rpc GetIndexedCrossChainBlockDataByHeight (aelf.SInt64Value) returns (CrossChainBlockData) {
+    rpc GetInStablecoinedCrossChainBlockDataByHeight (aelf.SInt64Value) returns (CrossChainBlockData) {
         option (aelf.is_view) = true;
     }
-    rpc GetIndexedSideChainBlockDataByHeight (aelf.SInt64Value) returns (IndexedSideChainBlockData) {
+    rpc GetInStablecoinedSideChainBlockDataByHeight (aelf.SInt64Value) returns (InStablecoinedSideChainBlockData) {
         option (aelf.is_view) = true;
     }
     rpc GetBoundParentChainHeightAndMerklePathByHeight (aelf.SInt64Value) returns (CrossChainMerkleProofContext) {
@@ -54,7 +54,7 @@ message RechargeInput {
     sint64 amount = 2;
 }
 
-message IndexedSideChainBlockDataResult {
+message InStablecoinedSideChainBlockDataResult {
     int64 height = 1;
     aelf.Address miner = 2;
     repeated SideChainBlockData side_chain_block_data = 3;
@@ -66,8 +66,8 @@ message ParentChainBlockData {
     int32 chain_id = 3;
     aelf.Hash transaction_status_merkle_tree_root = 4;
 
-    // Indexed block height from side chain and merkle path for this side chain block
-    map<int64, aelf.MerklePath> indexed_merkle_path = 5;
+    // InStablecoined block height from side chain and merkle path for this side chain block
+    map<int64, aelf.MerklePath> inStablecoined_merkle_path = 5;
     map<string, bytes> extra_data = 6;
 }
 
@@ -87,14 +87,14 @@ message SideChainIdAndHeightDict {
     map<int32, int64> id_height_dict = 1;
 }
 
-message SideChainIndexingInformationList {
-    repeated SideChainIndexingInformation indexing_information_list = 1;
+message SideChainInStablecoiningInformationList {
+    repeated SideChainInStablecoiningInformation inStablecoining_information_list = 1;
 }
 
-message SideChainIndexingInformation {
+message SideChainInStablecoiningInformation {
     int32 chain_id = 1;
-    int64 indexed_height = 2;
-    int64 to_be_indexed_count = 3;
+    int64 inStablecoined_height = 2;
+    int64 to_be_inStablecoined_count = 3;
 }
 
 message CrossChainBlockData {
@@ -142,7 +142,7 @@ message SideChainInfo {
 }
 
 message SideChainCreationRequest {
-    int64 indexing_price = 1;
+    int64 inStablecoining_price = 1;
     int64 locked_token_amount = 2;
     bool is_privilege_preserved = 4;
     string side_chain_token_symbol = 5;
@@ -166,11 +166,11 @@ message RequestChainCreationOutput {
     aelf.Hash proposal_id = 2;
 }
 
-message IndexedParentChainBlockData{
+message InStablecoinedParentChainBlockData{
     int64 local_chain_height = 1;
     repeated acs7.ParentChainBlockData parent_chain_block_data = 2;
 }
 
-message IndexedSideChainBlockData{
+message InStablecoinedSideChainBlockData{
     repeated acs7.SideChainBlockData side_chain_block_data = 1;
 }
